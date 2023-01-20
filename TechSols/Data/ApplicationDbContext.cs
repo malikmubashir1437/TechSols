@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using TechSols.Entities;
 
 namespace TechSols.Data
 {
@@ -27,6 +29,9 @@ namespace TechSols.Data
 		[StringLength(50)]
 		public string PostCode { get; set; }
 
+		[ForeignKey("UserId")]
+		public virtual ICollection<UserCategory> UserCategory { get; set; }
+
 	}
 
 
@@ -36,6 +41,10 @@ namespace TechSols.Data
 			: base(options)
 		{
 		}
-
+		public DbSet<Category> Category { get; set; }
+		public DbSet<CategoryItem> CategoryItem { get; set; }
+		public DbSet<MediaType> MediaType { get; set; }
+		public DbSet<UserCategory> UserCategory { get; set; }
+		public DbSet<Content> Content { get; set; }
 	}
 }

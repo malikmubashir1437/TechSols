@@ -15,6 +15,7 @@ namespace TechSols.Entities
 		public string Description { get; set; }
 
 		[Required]
+		[Display(Name = "Image")]
 		public string ThumbnailImagePath { get; set; }
 
 		[ForeignKey("CategoryId")]

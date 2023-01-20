@@ -1,0 +1,47 @@
+﻿@model IEnumerable<TechSols.Entities.Category>
+
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="alert alert-success text-center">All Categories</h1>
+
+<div class="row">
+	<div class="col-md-12 d-flex justify-content-end">
+		<p>
+			<a asp-action="Create" class="btn btn-success">
+				<i class="fas fa-plus"></i>	Add New Category
+			</a>
+		</p>
+	</div>
+</div>
+
+<div class="row g-4">
+	@foreach (var item in Model)
+	{
+		<div class="col-md-4">
+			<div class="card rounded rounded-4">
+				<img src="@item.ThumbnailImagePath" class="card-img-top rounded rounded-4 rounded-bottom" alt="img">
+				<div class="card-body">
+					<h5 class="card-title">@item.Title</h5>
+					<p class="card-text">@item.Description</p>
+					<div class="d-flex justify-content-between">
+						<a asp-action="Edit" asp-route-id="@item.Id" class="text-decoration-none">
+							<i class="fas fa-pencil-alt text-warning"></i>
+						</a> |
+						<a asp-action="Details" asp-route-id="@item.Id" class="text-decoration-none">
+							<i class="fas fa-book-open-reader text-info"></i>
+						</a> |
+						<a asp-action="Delete" asp-route-id="@item.Id" class="text-decoration-none">
+							<i class="fas fa-trash-alt text-danger"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	}
+</div>
+

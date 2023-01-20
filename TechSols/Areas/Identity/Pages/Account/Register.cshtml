@@ -8,29 +8,67 @@
 
 <div class="row">
 	<div class="col-md-8 offset-md-2">
-		<form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-			<h2 class="alert alert-primary text-center">Create a new account for yourself.</h2>
-			<hr />
-			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-			<div class="form-group">
-				<label class="fw-bold" asp-for="Input.Email"></label>
-				<input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
-				<span asp-validation-for="Input.Email" class="text-danger"></span>
+		<div class="row d-flex justify-content-center align-items-center h-100">
+			<div class="card text-black shadow shadow-lg border border-3 b-radius border-success">
+				<div class="card-body p-md-5">
+					<div class="row justify-content-center">
+						<p class="alert alert-primary text-center h1 fw-bold mx-1 mx-md-4">
+							Create a new account for yourself.
+						</p>
+
+						<hr />
+						<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+						<form class="mx-1 mx-md-4" id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+
+							<div class="form-group d-flex flex-row align-items-center">
+								<i class="fas fa-envelope fa-lg mt-3 me-2 fa-fw"></i>
+								<div class="flex-fill mb-0">
+									<label class="fw-bold" asp-for="Input.Email"></label>
+									<input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+									<span asp-validation-for="Input.Email" class="text-danger"></span>
+								</div>
+							</div>
+
+							<div class="form-group d-flex flex-row align-items-center">
+								<i class="fas fa-lock fa-lg me-2 mt-3 fa-fw"></i>
+								<div class="flex-fill mb-0">
+									<label class="fw-bold" asp-for="Input.Password"></label>
+									<input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
+									<span asp-validation-for="Input.Password" class="text-danger"></span>
+								</div>
+							</div>
+							<div class="d-flex flex-row align-items-center form-group">
+								<i class="fas fa-key fa-lg me-2 mt-4 fa-fw"></i>
+								<div class="flex-fill mb-0">
+									<label class="fw-bold" asp-for="Input.ConfirmPassword"></label>
+									<input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
+									<span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+								</div>
+							</div>
+							<!-- <div class="form-check d-flex justify-content-center mb-5">
+									<input class="form-check-input me-2" type="checkbox" value=""
+										   id="form2Example3c" />
+									<label class="form-check-label" for="form2Example3">
+										I agree all statements in <a href="#!">Terms of service</a>
+									</label>
+									</div> -->
+							<div class="form-group d-flex justify-content-center">
+								<button id="registerSubmit" type="submit" class="fw-bold btn btn-lg w-75 btn-success">
+									<i class="fas fa-user-alt"></i>	Register
+								</button>
+							</div>
+						</form>
+					</div>
+					<div class="form-group d-flex align-items-center order-1 order-lg-2">
+						<img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+							 class="img-fluid" alt="Sample image">
+					</div>
+				</div>
 			</div>
-			<div class="form-group">
-				<label class="fw-bold" asp-for="Input.Password"></label>
-				<input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
-				<span asp-validation-for="Input.Password" class="text-danger"></span>
-			</div>
-			<div class="form-group">
-				<label class="fw-bold" asp-for="Input.ConfirmPassword"></label>
-				<input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
-				<span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-			</div>
-			<button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-success">Register</button>
-		</form>
+		</div>
 	</div>
 </div>
+
 
 @section Scripts {
 	<partial name="_ValidationScriptsPartial" />
